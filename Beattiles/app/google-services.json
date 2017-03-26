@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "880830704015",
+    "firebase_url": "https://beattiles-7dd84.firebaseio.com",
+    "project_id": "beattiles-7dd84",
+    "storage_bucket": "beattiles-7dd84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880830704015:android:3cc7594be13b2c46",
+        "android_client_info": {
+          "package_name": "trainedge.beattiles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880830704015-icehp4jdhb38tff1rf922o1pvakvtgvo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "trainedge.beattiles",
+            "certificate_hash": "ed283edb8f81cbf93d8549d244e32d26a8e44dec"
+          }
+        },
+        {
+          "client_id": "880830704015-m1a9gbkt1fltpr01lc2l77fhkp6a9bo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwRjVCBB0_jMYQDyUyaVs9kRorIvhrMUU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880830704015-m1a9gbkt1fltpr01lc2l77fhkp6a9bo3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

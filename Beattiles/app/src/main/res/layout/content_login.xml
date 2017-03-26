@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="trainedge.beattiles.LoginActivity"
+    tools:showIn="@layout/activity_login">
+
+    <ImageView
+        android:id="@+id/ivbackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/gradientbackground2"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/ivGoogleSignIn"
+        android:layout_width="97dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_light_pressed"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="298dp" />
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        tools:layout_editor_absoluteY="322dp"
+        tools:layout_editor_absoluteX="142dp" />
+</android.support.constraint.ConstraintLayout>
