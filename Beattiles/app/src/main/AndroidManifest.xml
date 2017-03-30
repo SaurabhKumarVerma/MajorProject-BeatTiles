@@ -23,15 +23,6 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
-        <activity
-            android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-=======
->>>>>>> origin/master
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -52,16 +43,29 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-<<<<<<< HEAD
-            android:theme="@style/AppTheme.NoActionBar"><intent-filter>
-=======
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity"><intent-filter>
->>>>>>> origin/master
-            <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:label="@string/title_activity_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AccountSettingActivity"
+            android:label="@string/title_activity_account_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GameOptionActivity"
+            android:label="@string/title_activity_game_option"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
