@@ -38,13 +38,13 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
-    public static final int RC_SIGN_IN = 7283;
+    public static final int RC_SIGN_IN = 8768;
     public static final String TAG = "LoginActivity";
 
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private LoginButton loginButton;
+
     private CallbackManager mCallbackManager;
     private Button ivGoogleSignIn;
 
@@ -76,8 +76,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Intent homeIntent=new Intent(LoginActivity.this,HomeActivity.class);
+                    Intent homeIntent=new Intent(LoginActivity.this,BeatActivity.class);
                     startActivity(homeIntent);
+                    finish();
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -132,8 +133,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             } else {
                 // ...
             }
+        } else {
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -204,7 +206,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     Toast.makeText(LoginActivity.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
                 }
-
                 // ...
             }
         });

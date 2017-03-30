@@ -10,5 +10,6 @@
     <string name="title_activity_setting">SettingActivity</string>
     <string name="title_activity_account_setting">AccountSettingActivity</string>
     <string name="title_activity_game_option">GameOptionActivity</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
 
 </resources>

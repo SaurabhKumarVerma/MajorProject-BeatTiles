@@ -33,7 +33,7 @@
         android:layout_marginBottom="48dp"
         android:background="@drawable/com_facebook_button_like_background"
         android:drawableLeft="@drawable/common_google_signin_btn_icon_dark_normal"
-        android:text="Sign in with Google"
+        android:text="@string/sign_in_with_google"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toTopOf="@+id/FacebookSignIn"
         app:layout_constraintLeft_toLeftOf="parent"
