@@ -55,6 +55,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:parentActivityName=".BeatActivity"
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting"
             android:theme="@style/AppTheme.NoActionBar" />

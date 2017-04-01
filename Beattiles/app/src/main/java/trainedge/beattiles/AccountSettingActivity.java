@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-public class AccountSettingActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, TextWatcher {
+public class AccountSettingActivity extends AppCompatActivity  {
 
 
     private Switch switchCloudSyncOp;
@@ -26,10 +26,10 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //display back button
+        /*display back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        switchCloudSyncOp =(Switch) findViewById(R.id.switchCloudSyncOp);
+       // switchCloudSyncOp =(Switch) findViewById(R.id.switchCloudSyncOp);
         defaultemail = (EditText) findViewById(R.id.defaultemail);
         //SharedPref obj
         pref = getSharedPreferences("setting_pref", MODE_PRIVATE);
@@ -38,11 +38,11 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         defaultemail.addTextChangedListener( this);
 
         //read pref to update ui too
-        updateUI();
+        updateUI();*/
     }
 
 
- @Override
+ /*@Override
          public void onClick(View v){
 
      SharedPreferences.Editor editor = pref.edit();
@@ -100,7 +100,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
 
     private void updateUI() {
 
-    }
+    }*/
 
 
 }

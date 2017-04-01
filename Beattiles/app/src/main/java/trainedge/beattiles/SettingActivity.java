@@ -1,13 +1,17 @@
 package trainedge.beattiles;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private Button accbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +20,20 @@ public class SettingActivity extends AppCompatActivity {
         Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        accbtn = (Button) findViewById(R.id.accountbutton);
+        accbtn.setOnClickListener(this);
+
 
     }
 
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.accountbutton){
+            Intent accintent = new Intent(SettingActivity.this,AccountSettingActivity.class);
+            startActivity(accintent);
+        }
+
+    }
 }
