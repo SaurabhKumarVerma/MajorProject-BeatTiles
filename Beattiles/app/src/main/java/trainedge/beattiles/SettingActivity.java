@@ -12,6 +12,7 @@ import android.widget.Button;
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button accbtn;
+    private Button feedbackbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         accbtn = (Button) findViewById(R.id.accountbutton);
         accbtn.setOnClickListener(this);
+        feedbackbutton = (Button) findViewById(R.id.feedbackbutton);
+        feedbackbutton.setOnClickListener(this);
 
 
     }
@@ -33,6 +36,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         if(v.getId() == R.id.accountbutton){
             Intent accintent = new Intent(SettingActivity.this,AccountSettingActivity.class);
             startActivity(accintent);
+        }
+        if (v.getId()==R.id.feedbackbutton){
+            Intent feedintent=new Intent(SettingActivity.this,FeedbackActivity.class);
+            startActivity(feedintent);
         }
 
     }
