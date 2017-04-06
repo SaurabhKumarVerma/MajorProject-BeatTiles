@@ -6,109 +6,22 @@
     android:layout_height="match_parent"
     tools:context="trainedge.beattiles.FeedbackActivity">
 
-    <include layout="@layout/content_feedback"
-        android:id="@+id/include" />
-
-    <android.support.constraint.ConstraintLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgroundbg"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <EditText
-            android:id="@+id/etname"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintBottom_creator="1"
-            android:layout_marginStart="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/etemail"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="73dp"
-            tools:layout_constraintLeft_creator="1"
-            android:layout_marginBottom="65dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView4"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <EditText
-            android:id="@+id/etemail"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:ems="10"
-            android:hint="Email-id"
-            android:inputType="textEmailAddress"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="215dp"
-            tools:layout_constraintLeft_creator="1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp" />
+    </android.support.design.widget.AppBarLayout>
 
-        <EditText
-            android:id="@+id/etcomment"
-            android:layout_width="0dp"
-            android:layout_height="123dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:gravity="top"
-            android:hint="Add Your Comments"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            android:layout_marginStart="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/etemail"
-            tools:layout_constraintLeft_creator="1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-
-        <Button
-            android:id="@+id/btnsend"
-            android:layout_width="213dp"
-            android:layout_height="59dp"
-            android:background="@color/colorPrimary"
-            android:text="Send Message"
-            android:textSize="18sp"
-            tools:layout_constraintRight_creator="1"
-            tools:layout_constraintBottom_creator="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_constraintLeft_creator="1"
-            android:layout_marginBottom="47dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Please Send Us Your Feedback"
-            android:textColor="@color/common_google_signin_btn_text_light_default"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            android:layout_marginEnd="23dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="60dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="23dp" />
-
-    </android.support.constraint.ConstraintLayout>
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_feedback" />
 
 </android.support.design.widget.CoordinatorLayout>

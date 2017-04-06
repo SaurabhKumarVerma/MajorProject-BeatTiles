@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,12 +19,16 @@ import java.util.HashMap;
 
 public class FeedbackActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText etname;
+    private ImageButton imbtn_nolike;
+    private ImageButton imbtn_sad;
+    private ImageButton imbtn_dis;
+    private ImageButton imbtn_epl;
+    private ImageButton imbtn_hapy;
+    private TextView tvfeedbck;
     private EditText etemail;
-    private EditText etcomment;
-    private Button btnsend;
+    private Button sendbtn;
     private FirebaseDatabase db;
-    private DatabaseReference commentRef;
+    private DatabaseReference commentsRfs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,45 +37,56 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        etname = (EditText) findViewById(R.id.etname);
+        imbtn_nolike = (ImageButton) findViewById(R.id.imbtn_nolike);
+        imbtn_sad = (ImageButton) findViewById(R.id.imbtn_sad);
+        imbtn_dis = (ImageButton) findViewById(R.id.imbtn_dis);
+        imbtn_epl = (ImageButton) findViewById(R.id.imbtn_epl);
+        imbtn_hapy = (ImageButton) findViewById(R.id.imbtn_hapy);
+        tvfeedbck = (TextView) findViewById(R.id.tvfeedbck);
         etemail = (EditText) findViewById(R.id.etemail);
-        etcomment = (EditText) findViewById(R.id.etcomment);
-        btnsend = (Button) findViewById(R.id.btnsend);
+        sendbtn = (Button) findViewById(R.id.sendbtn);
+
         db = FirebaseDatabase.getInstance();
-        commentRef = db.getReference("comments");
-        btnsend.setOnClickListener(this) ;
+        commentsRfs = db.getReference("COMMENTS");
+        sendbtn.setOnClickListener(this);
     }
+
     @Override
-    public void onClick(View v){
-        String name =etname.getText().toString();
-        String emailid = etemail.getText().toString();
-        String comment = etcomment.getText().toString();
-        if (name.isEmpty()) {
-            etname.setError("Please enter your name");
+    public void onClick(View v) {
+        String email=etemail.getText().toString();
+        String commentd=tvfeedbck.getText().toString();
+
+        if (email.isEmpty()){
+
+            etemail.setError("Fill Your Email");
             return;
         }
-        if (emailid.isEmpty()) {
-            etemail.setError("Please enter your email");
+        if (commentd.isEmpty()){
+
+            tvfeedbck.setError("Fill Your Comments");
             return;
         }
-        if (comment.isEmpty()) {
-            etcomment.setError("Please add your comment for better experience");
-            return;
-        }
-        //firebase upload
         HashMap<String,String> map=new HashMap<>();
-        map.put("msg", comment);
-        map.put("user", name);
-        map.put("user", emailid);
-
-        commentRef.push().setValue(map);
-        etname.setText("");
+        map.put("msg",commentd);
+        map.put("User",email);
+        commentsRfs.push().setValue(map);
         etemail.setText("");
-        etcomment.setText("");
+        tvfeedbck.setText("");
 
+        if(v.getId()==R.id.imbtn_nolike){
+            Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
         }
-
-
+        if (v.getId()==R.id.imbtn_sad){
+            Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+        }
+        if (v.getId()==R.id.imbtn_dis){
+            Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+        }
+        if (v.getId()==R.id.imbtn_epl){
+            Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+        }
+        if (v.getId()==R.id.imbtn_hapy){
+            Toast.makeText(this, "5", Toast.LENGTH_SHORT).show();
+        }
     }
-
-
+}

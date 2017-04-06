@@ -13,6 +13,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
     private Button accbtn;
     private Button feedbackbutton;
+    private Button sharebtn;
+    private Button gameoptinbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         accbtn.setOnClickListener(this);
         feedbackbutton = (Button) findViewById(R.id.feedbackbutton);
         feedbackbutton.setOnClickListener(this);
+        sharebtn = (Button) findViewById(R.id.sharebtn);
+        sharebtn.setOnClickListener(this);
+        gameoptinbtn = (Button) findViewById(R.id.gameoptinbtn);
+        gameoptinbtn.setOnClickListener(this);
 
 
     }
@@ -41,6 +47,15 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             Intent feedintent=new Intent(SettingActivity.this,FeedbackActivity.class);
             startActivity(feedintent);
         }
+        if (v.getId()==R.id.sharebtn){
+            Intent shareintent=new Intent(SettingActivity.this,FeedbackActivity.class);
+            startActivity(shareintent);
+        }
+        if (v.getId()==R.id.gameoptinbtn){
+            Intent gmointent=new Intent(SettingActivity.this,GameOptionActivity.class);
+            startActivity(gmointent);
+        }
+
 
     }
 }

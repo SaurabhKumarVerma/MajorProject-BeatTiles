@@ -11,5 +11,12 @@
     <string name="title_activity_account_setting">AccountSettingActivity</string>
     <string name="title_activity_game_option">GameOptionActivity</string>
     <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="title_activity_share">ShareActivity</string>
+    <string-array name="Tilescolor">
+        <item>Red</item>
+        <item>yellow</item>
+        <item>Green</item>
+        <item>Blue</item>
+    </string-array>
 
 </resources>
