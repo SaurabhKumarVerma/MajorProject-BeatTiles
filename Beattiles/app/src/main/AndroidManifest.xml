@@ -66,13 +66,12 @@
         <activity
             android:name=".FeedbackActivity"
             android:label="@string/title_activity_feedback"
-<<<<<<< HEAD
+
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ShareActivity"
             android:label="@string/title_activity_share"
-=======
->>>>>>> origin/master
+
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

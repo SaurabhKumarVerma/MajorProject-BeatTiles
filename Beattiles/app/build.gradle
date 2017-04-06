@@ -49,8 +49,4 @@ dependencies {
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 apply plugin: 'com.google.gms.google-services'
