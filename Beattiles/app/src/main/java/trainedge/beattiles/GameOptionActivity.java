@@ -32,6 +32,7 @@ public class GameOptionActivity extends AppCompatActivity implements AdapterView
 
         btnopt = (Button) findViewById(R.id.btnopt);
         sp1 = (Spinner) findViewById(R.id.spn1);
+        sp1.setOnItemSelectedListener(this);
         sw1 = (Switch) findViewById(R.id.sw1);
         sw2 = (Switch) findViewById(R.id.sw2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
