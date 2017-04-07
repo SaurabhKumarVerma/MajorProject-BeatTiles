@@ -29,6 +29,8 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     private Button sendbtn;
     private FirebaseDatabase db;
     private DatabaseReference commentsRfs;
+    private int rating;
+    private EditText edfeedbck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +44,15 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         imbtn_dis = (ImageButton) findViewById(R.id.imbtn_dis);
         imbtn_epl = (ImageButton) findViewById(R.id.imbtn_epl);
         imbtn_hapy = (ImageButton) findViewById(R.id.imbtn_hapy);
-        tvfeedbck = (TextView) findViewById(R.id.tvfeedbck);
+        edfeedbck = (EditText) findViewById(R.id.edfeedbck);
         etemail = (EditText) findViewById(R.id.etemail);
-        sendbtn = (Button) findViewById(R.id.sendbtn);
+
+        imbtn_nolike.setOnClickListener(this);
+        imbtn_sad.setOnClickListener(this);
+        imbtn_dis.setOnClickListener(this);
+        imbtn_epl.setOnClickListener(this);
+        imbtn_hapy.setOnClickListener(this);
+
 
         db = FirebaseDatabase.getInstance();
         commentsRfs = db.getReference("COMMENTS");
@@ -73,20 +81,30 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         etemail.setText("");
         tvfeedbck.setText("");
 
-        if(v.getId()==R.id.imbtn_nolike){
-            Toast.makeText(this, "1", Toast.LENGTH_SHORT).show();
+        if(v.getId()==R.id.imbtn_nolike)
+        {
+            rating =1;
+            Toast.makeText(this, "HATED", Toast.LENGTH_SHORT).show();
         }
-        if (v.getId()==R.id.imbtn_sad){
-            Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+        if (v.getId()==R.id.imbtn_sad)
+        {
+            rating=2;
+            Toast.makeText(this, "LESS HATED", Toast.LENGTH_SHORT).show();
         }
-        if (v.getId()==R.id.imbtn_dis){
-            Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+        if (v.getId()==R.id.imbtn_dis)
+        {
+            rating=3;
+            Toast.makeText(this, "NORMAL", Toast.LENGTH_SHORT).show();
         }
-        if (v.getId()==R.id.imbtn_epl){
-            Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+        if (v.getId()==R.id.imbtn_epl)
+        {
+            rating=4;
+            Toast.makeText(this, "LIKE IT", Toast.LENGTH_SHORT).show();
         }
-        if (v.getId()==R.id.imbtn_hapy){
-            Toast.makeText(this, "5", Toast.LENGTH_SHORT).show();
+        if (v.getId()==R.id.imbtn_hapy)
+        {
+            rating=5;
+            Toast.makeText(this, "LOVE IT", Toast.LENGTH_SHORT).show();
         }
     }
 }
