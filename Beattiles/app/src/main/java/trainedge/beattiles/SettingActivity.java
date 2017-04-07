@@ -2,8 +2,6 @@ package trainedge.beattiles;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,10 +9,11 @@ import android.widget.Button;
 
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button accbtn;
-    private Button feedbackbutton;
-    private Button sharebtn;
-    private Button gameoptinbtn;
+    private Button accbt;
+    private Button feedbackbutto;
+    private Button sharebt;
+    private Button gameoptinbt;
+    private Button aboutbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +23,18 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         setSupportActionBar(toolbar);
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        accbtn = (Button) findViewById(R.id.accountbutton);
-        accbtn.setOnClickListener(this);
-        feedbackbutton = (Button) findViewById(R.id.feedbackbutton);
-        feedbackbutton.setOnClickListener(this);
-        sharebtn = (Button) findViewById(R.id.sharebtn);
-        sharebtn.setOnClickListener(this);
-        gameoptinbtn = (Button) findViewById(R.id.gameoptinbtn);
-        gameoptinbtn.setOnClickListener(this);
+        accbt = (Button) findViewById(R.id.accountbutton);
+        feedbackbutto = (Button) findViewById(R.id.feedbackbutton);
+        sharebt = (Button) findViewById(R.id.sharebtn);
+        gameoptinbt = (Button) findViewById(R.id.gameoptinbtn);
+        aboutbt = (Button) findViewById(R.id.aboutbtn);
 
+
+        accbt.setOnClickListener(this);
+        feedbackbutto.setOnClickListener(this);
+        sharebt.setOnClickListener(this);
+        gameoptinbt.setOnClickListener(this);
+        aboutbt.setOnClickListener(this);
 
     }
 
@@ -48,12 +50,17 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(feedintent);
         }
         if (v.getId()==R.id.sharebtn){
-            Intent shareintent=new Intent(SettingActivity.this,FeedbackActivity.class);
+            Intent shareintent=new Intent(SettingActivity.this,ShareActivity.class);
             startActivity(shareintent);
         }
         if (v.getId()==R.id.gameoptinbtn){
             Intent gmointent=new Intent(SettingActivity.this,GameOptionActivity.class);
             startActivity(gmointent);
+        }
+        if (v.getId()==R.id.aboutbtn){
+
+            Intent aboutintent=new Intent(SettingActivity.this,AboutActivity.class);
+            startActivity(aboutintent);
         }
 
 

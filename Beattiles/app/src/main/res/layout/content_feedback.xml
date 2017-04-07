@@ -19,8 +19,12 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -29,8 +33,18 @@
         android:background="@drawable/my_boader"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="3dp"
-        tools:layout_editor_absoluteY="83dp"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintRight_toLeftOf="@+id/imbtn_nolike"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/imbtn_nolike"
+        android:layout_marginTop="67dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="69dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="3dp" />
 
     <ImageButton
         android:id="@+id/imbtn_nolike"
@@ -38,8 +52,13 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/unlike"
         android:layout_marginStart="14dp"
-        tools:layout_editor_absoluteY="93dp"
-        tools:layout_editor_absoluteX="14dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/imbtn_epl"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_epl"
+        android:layout_marginLeft="14dp" />
 
     <ImageButton
         android:id="@+id/imbtn_sad"
@@ -47,8 +66,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/sad"
         android:layout_marginStart="9dp"
-        tools:layout_editor_absoluteY="93dp"
-        tools:layout_editor_absoluteX="87dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_nolike"
+        app:layout_constraintLeft_toRightOf="@+id/imbtn_nolike"
+        android:layout_marginLeft="9dp" />
 
     <ImageButton
         android:id="@+id/imbtn_dis"
@@ -56,8 +78,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/disappointed"
         android:layout_marginStart="7dp"
-        tools:layout_editor_absoluteY="93dp"
-        tools:layout_editor_absoluteX="158dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_sad"
+        app:layout_constraintLeft_toRightOf="@+id/imbtn_sad"
+        android:layout_marginLeft="7dp" />
 
     <ImageButton
         android:id="@+id/imbtn_epl"
@@ -65,8 +90,11 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/expressionless"
         android:layout_marginEnd="6dp"
-        tools:layout_editor_absoluteY="93dp"
-        tools:layout_editor_absoluteX="234dp" />
+        app:layout_constraintRight_toLeftOf="@+id/imbtn_hapy"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_hapy"
+        android:layout_marginRight="6dp" />
 
     <ImageButton
         android:id="@+id/imbtn_hapy"
@@ -74,8 +102,15 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/happy"
         android:layout_marginEnd="16dp"
-        tools:layout_editor_absoluteY="93dp"
-        tools:layout_editor_absoluteX="304dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/edfeedbck"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="39dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="16dp" />
 
     <Button
         android:id="@+id/sendbtn"
@@ -85,30 +120,52 @@
         android:background="@color/colorAccent"
         android:text="Button"
         android:textStyle="bold"
-        tools:layout_editor_absoluteY="387dp"
-        tools:layout_editor_absoluteX="148dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="27dp"
+        app:layout_constraintTop_toBottomOf="@+id/etemail"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
         android:id="@+id/etemail"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="64dp"
         android:ems="10"
         android:hint="Enter Your Email"
         android:inputType="textEmailAddress"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        tools:layout_editor_absoluteY="296dp"
-        tools:layout_editor_absoluteX="14dp" />
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="151dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp" />
 
     <EditText
         android:id="@+id/edfeedbck"
         android:layout_width="0dp"
-        android:layout_height="66dp"
+        android:layout_height="65dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
         android:ems="10"
         android:hint="Tell Me How we can Improved This Game "
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="193dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/sendbtn"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="177dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="177dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" />
 </android.support.constraint.ConstraintLayout>

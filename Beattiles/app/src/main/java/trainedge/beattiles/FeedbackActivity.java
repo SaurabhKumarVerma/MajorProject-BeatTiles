@@ -5,6 +5,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class FeedbackActivity extends AppCompatActivity implements View.OnClickListener {
+public class FeedbackActivity extends AppCompatActivity implements View.OnClickListener,TextWatcher {
 
     private ImageButton imbtn_nolike;
     private ImageButton imbtn_sad;
@@ -54,14 +56,12 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         imbtn_hapy.setOnClickListener(this);
 
 
-        db = FirebaseDatabase.getInstance();
-        commentsRfs = db.getReference("COMMENTS");
-        sendbtn.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        String email=etemail.getText().toString();
+       /* String email=etemail.getText().toString();
         String commentd=tvfeedbck.getText().toString();
 
         if (email.isEmpty()){
@@ -79,7 +79,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         map.put("User",email);
         commentsRfs.push().setValue(map);
         etemail.setText("");
-        tvfeedbck.setText("");
+        tvfeedbck.setText("");*/
 
         if(v.getId()==R.id.imbtn_nolike)
         {
@@ -106,5 +106,22 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             rating=5;
             Toast.makeText(this, "LOVE IT", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+    String email=s.toString();
+        if(email.isEmpty() || email.length()<10 || !email.contains(".com"));
+        etemail.setError("Please give a correct email.com");
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
     }
 }
