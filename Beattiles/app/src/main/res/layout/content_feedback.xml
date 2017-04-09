@@ -19,8 +19,12 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -29,8 +33,18 @@
         android:background="@drawable/my_boader"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="3dp"
-        tools:layout_editor_absoluteY="83dp"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintRight_toLeftOf="@+id/imbtn_nolike"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/imbtn_nolike"
+        android:layout_marginTop="67dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="49dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="3dp" />
 
     <ImageButton
         android:id="@+id/imbtn_nolike"
@@ -39,81 +53,121 @@
         android:layout_marginStart="14dp"
         android:background="@drawable/com_facebook_auth_dialog_cancel_background"
         app:srcCompat="@drawable/unlike"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/imbtn_epl"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_epl"
+        android:layout_marginLeft="14dp" />
 
     <ImageButton
         android:id="@+id/imbtn_sad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="33dp"
         android:background="@drawable/com_facebook_auth_dialog_cancel_background"
         app:srcCompat="@drawable/sad"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_nolike"
+        app:layout_constraintLeft_toRightOf="@+id/imbtn_nolike"
+        android:layout_marginLeft="33dp" />
 
     <ImageButton
         android:id="@+id/imbtn_dis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="31dp"
         android:background="@drawable/com_facebook_auth_dialog_cancel_background"
         app:srcCompat="@drawable/disappointed"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_sad"
+        app:layout_constraintLeft_toRightOf="@+id/imbtn_sad"
+        android:layout_marginLeft="31dp" />
 
     <ImageButton
         android:id="@+id/imbtn_epl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/com_facebook_auth_dialog_cancel_background"
         app:srcCompat="@drawable/expressionless"
-        tools:layout_editor_absoluteX="234dp"
-        tools:layout_editor_absoluteY="93dp" />
+        app:layout_constraintRight_toLeftOf="@+id/imbtn_hapy"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_hapy"
+        android:layout_marginRight="30dp" />
 
     <ImageButton
         android:id="@+id/imbtn_hapy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/com_facebook_auth_dialog_cancel_background"
         app:srcCompat="@drawable/happy"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="93dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/textView4"
+        android:layout_marginTop="93dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/textView4" />
 
     <Button
         android:id="@+id/sendbtn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
         android:background="@color/colorAccent"
-        android:text="Button"
+        android:text="Send"
         android:textStyle="bold"
-        tools:layout_editor_absoluteY="387dp"
-        tools:layout_editor_absoluteX="148dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etemail"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/etemail"
-        android:layout_width="362dp"
+        android:layout_width="0dp"
         android:layout_height="69dp"
         android:ems="10"
         android:hint="Enter Your Email"
         android:inputType="textEmailAddress"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
-        tools:layout_editor_absoluteY="296dp"
-        tools:layout_editor_absoluteX="13dp" />
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="146dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp" />
 
     <EditText
         android:id="@+id/edfeedbck"
-        android:layout_width="359dp"
+        android:layout_width="0dp"
         android:layout_height="68dp"
         android:layout_marginEnd="12dp"
         android:layout_marginStart="12dp"
         android:ems="10"
         android:hint="Tell Me How we can Improved This Game "
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteY="193dp"
-        tools:layout_editor_absoluteX="12dp" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/etemail"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="100dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="104dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imbtn_nolike"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" />
 </android.support.constraint.ConstraintLayout>

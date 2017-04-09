@@ -1,5 +1,6 @@
 package trainedge.beattiles;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -33,6 +34,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     private DatabaseReference commentsRfs;
     private int rating;
     private EditText edfeedbck;
+    private Button sendbtn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +50,15 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         imbtn_hapy = (ImageButton) findViewById(R.id.imbtn_hapy);
         edfeedbck = (EditText) findViewById(R.id.edfeedbck);
         etemail = (EditText) findViewById(R.id.etemail);
+        sendbtn1 = (Button) findViewById(R.id.sendbtn);
+
 
         imbtn_nolike.setOnClickListener(this);
         imbtn_sad.setOnClickListener(this);
         imbtn_dis.setOnClickListener(this);
         imbtn_epl.setOnClickListener(this);
         imbtn_hapy.setOnClickListener(this);
-
+        sendbtn1.setOnClickListener(this);
 
 
     }
@@ -106,7 +110,13 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
             rating=5;
             Toast.makeText(this, "LOVE IT", Toast.LENGTH_SHORT).show();
         }
+        if(v.getId()==R.id.sendbtn){
+            send();
+        }
     }
+
+
+
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -124,4 +134,32 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
     public void afterTextChanged(Editable s) {
 
     }
+
+    private void send() {
+
+        String str1 = edfeedbck.getText().toString();
+        String str2 = etemail.getText().toString();
+        if (str1.isEmpty()) {
+            edfeedbck.setError("Recquired");
+            return;
+        }
+
+        if(!str2.contains("@") && !str2.contains(".com") && str2.isEmpty() && str2.length() < 10){
+            etemail.setError("Please enter a valid email address.");
+            return;
+        }
+        if(rating == 0){
+            Toast.makeText(FeedbackActivity.this, "Please rate our app first.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent emailint = new Intent(Intent.ACTION_SEND);
+        emailint.setType("text/html");
+        emailint.putExtra(Intent.EXTRA_EMAIL,new String[]{"ankitsrv995@gmail.com"});
+        emailint.putExtra(Intent.EXTRA_SUBJECT,"Feedback");
+        emailint.putExtra(Intent.EXTRA_TEXT,"Hi,\n \t You have got a feedback e-mail.Your app has been rated "+rating+" star by the user. And user's thought about the app are - \""+edfeedbck.getText().toString()+"\". To write him back please use the email \""+etemail.getText().toString()+"\". \n\tHave a nice day. \n\tThank You.");
+        startActivity(Intent.createChooser(emailint,"Send Feedback"));
+    }
+
+
+
 }
