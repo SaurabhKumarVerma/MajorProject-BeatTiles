@@ -25,14 +25,14 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         accbt = (Button) findViewById(R.id.accountbutton);
         feedbackbutto = (Button) findViewById(R.id.feedbackbutton);
-        sharebt = (Button) findViewById(R.id.sharebtn);
+
         gameoptinbt = (Button) findViewById(R.id.gameoptinbtn);
         aboutbt = (Button) findViewById(R.id.aboutbtn);
 
 
         accbt.setOnClickListener(this);
         feedbackbutto.setOnClickListener(this);
-        sharebt.setOnClickListener(this);
+
         gameoptinbt.setOnClickListener(this);
         aboutbt.setOnClickListener(this);
 
@@ -49,10 +49,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             Intent feedintent=new Intent(SettingActivity.this,FeedbackActivity.class);
             startActivity(feedintent);
         }
-        if (v.getId()==R.id.sharebtn){
-            Intent shareintent=new Intent(SettingActivity.this,ShareActivity.class);
-            startActivity(shareintent);
-        }
+
+
         if (v.getId()==R.id.gameoptinbtn){
             Intent gmointent=new Intent(SettingActivity.this,GameOptionActivity.class);
             startActivity(gmointent);

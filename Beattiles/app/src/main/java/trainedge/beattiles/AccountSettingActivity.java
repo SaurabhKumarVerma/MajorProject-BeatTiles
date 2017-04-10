@@ -10,12 +10,15 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.squareup.picasso.Picasso;
 
 public class AccountSettingActivity extends AppCompatActivity {
 
@@ -23,6 +26,8 @@ public class AccountSettingActivity extends AppCompatActivity {
     private Switch switchCloudSyncOp;
     private EditText defaultemail;
     private SharedPreferences pref;
+    private TextView username;
+    private ImageView ivpicaso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,9 @@ public class AccountSettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account_setting);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ivpicaso = (ImageView) findViewById(R.id.ivpicaso);
+        username = (TextView) findViewById(R.id.username);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -44,8 +52,17 @@ public class AccountSettingActivity extends AppCompatActivity {
                 String name = profile.getDisplayName();
                 String email = profile.getEmail();
                 Uri photoUrl = profile.getPhotoUrl();
+
+                username.setText(name);
+                Picasso.with(this)
+                        .load(photoUrl)
+                        .resize(50, 50)
+                        .centerCrop()
+                        .into(ivpicaso);
             }
-            ;
+
+
+
         }
 
 
