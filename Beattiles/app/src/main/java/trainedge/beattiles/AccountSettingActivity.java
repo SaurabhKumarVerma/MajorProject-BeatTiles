@@ -18,14 +18,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-<<<<<<< HEAD
+
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.common.api.GoogleApiClient;
-=======
 import android.widget.Toast;
 
->>>>>>> origin/master
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
@@ -40,14 +39,12 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
     private SharedPreferences pref;
     private TextView username;
     private ImageView ivpicaso;
-<<<<<<< HEAD
     private Button logout;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG="AccountSettingActivity";
     private FirebaseAuth mAuth;
-=======
->>>>>>> origin/master
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +55,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
 
         ivpicaso = (ImageView) findViewById(R.id.ivpicaso);
         username = (TextView) findViewById(R.id.username);
-<<<<<<< HEAD
+
         logout = (Button) findViewById(R.id.logout);
 
         logout.setOnClickListener(this);
@@ -80,8 +77,6 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
             }
         };
 
-=======
->>>>>>> origin/master
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -100,65 +95,27 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
                 username.setText(name);
                 Picasso.with(this)
                         .load(photoUrl)
-<<<<<<< HEAD
                         .transform(new CircleTransform())
-=======
-                        .resize(80, 80)
-                        .centerCrop()
->>>>>>> origin/master
                         .into(ivpicaso);
             }
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
+
+
+
         }
     }
 
-<<<<<<< HEAD
+
     @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-=======
-        class CircleTransform implements Transformation {
-            @Override
-            public Bitmap transform(Bitmap source) {
-                int size = Math.min(source.getWidth(), source.getHeight());
 
-                int x = (source.getWidth() - size) / 2;
-                int y = (source.getHeight() - size) / 2;
 
-                Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
-                if (squaredBitmap != source) {
-                    source.recycle();
-                }
 
-                Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
-
-                Canvas canvas = new Canvas(bitmap);
-                Paint paint = new Paint();
-                BitmapShader shader = new BitmapShader(squaredBitmap,
-                        BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
-                paint.setShader(shader);
-                paint.setAntiAlias(true);
-
-                float r = size / 2f;
-                canvas.drawCircle(r, r, r, paint);
-
-                squaredBitmap.recycle();
-                return bitmap;
-            }
-
-            @Override
-            public String key() {
-                return "circle";
-            }
-        }
->>>>>>> origin/master
 
     @Override
     protected void onStop() {
@@ -174,11 +131,10 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
             LoginManager.getInstance().logOut();
             AccessToken.setCurrentAccessToken(null);
         }
-
     }
 
 
-      private  class CircleTransform implements Transformation {
+        private class CircleTransform implements Transformation {
             @Override
             public Bitmap transform(Bitmap source) {
                 int size = Math.min(source.getWidth(), source.getHeight());
@@ -212,9 +168,9 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
                 return "circle";
             }
         }
+    }
 
 
 
-   }
 
 
