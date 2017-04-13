@@ -53,6 +53,8 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mAuth=FirebaseAuth.getInstance();
+
         ivpicaso = (ImageView) findViewById(R.id.ivpicaso);
         username = (TextView) findViewById(R.id.username);
 
@@ -108,7 +110,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
 
 
 
-  /* @Override
+  @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
@@ -121,7 +123,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(mAuthListener);
-    }*/
+    }
 
     @Override
     public void onClick(View v) {
