@@ -43,6 +43,13 @@ public class BeatActivity extends AppCompatActivity {
             return true;
         }
 
+        if(id==R.id.action_share){
+
+            Intent shareint=new Intent(BeatActivity.this,ShareActivity.class);
+            startActivity(shareint);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
