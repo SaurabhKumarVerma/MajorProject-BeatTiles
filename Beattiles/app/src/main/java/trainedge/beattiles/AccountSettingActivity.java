@@ -81,8 +81,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             for (UserInfo profile : user.getProviderData()) {
-                // Id of the provider (ex: google.com)
-                String providerId = profile.getProviderId();
+                 String providerId = profile.getProviderId();
 
                 // UID specific to the provider
                 String uid = profile.getUid();
@@ -108,7 +107,8 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
     }
 
 
-    @Override
+
+  /* @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
@@ -121,7 +121,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(mAuthListener);
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
