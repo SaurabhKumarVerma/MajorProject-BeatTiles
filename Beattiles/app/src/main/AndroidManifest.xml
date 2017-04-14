@@ -71,6 +71,10 @@
             android:name=".ShareActivity"
             android:label="@string/title_activity_share"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MusicActivity"
+            android:label="@string/title_activity_music"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

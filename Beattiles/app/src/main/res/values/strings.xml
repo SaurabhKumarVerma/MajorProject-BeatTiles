@@ -19,5 +19,6 @@
         <item>Blue</item>
     </string-array>
     <string name="title_activity_open_music">openMusic</string>
+    <string name="title_activity_music">MusicActivity</string>
 
 </resources>
