@@ -21,53 +21,54 @@
         android:text="    Default E-mail Address"
         android:textSize="16sp"
 
-        android:layout_marginStart="48dp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="48dp"
-        app:layout_constraintRight_toRightOf="@+id/textView3"
+        android:layout_marginStart="8dp"
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/defaultemail"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="160dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="48dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/defaultemail"
+        android:layout_marginLeft="8dp" />
 
     <EditText
         android:id="@+id/defaultemail"
         android:layout_width="0dp"
 
         android:layout_marginStart="16dp"
+        app:layout_constraintRight_toLeftOf="@+id/switchCloudSyncOp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_height="0dp"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toTopOf="@+id/defaultemail"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="61dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="64dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="14dp" />
 
     <EditText
         android:id="@+id/defaultemail"
-        android:layout_width="338dp"
+        android:layout_width="0dp"
 
         android:layout_height="58dp"
         android:ems="10"
         android:hint="Enter Your E-mail"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
-        tools:layout_constraintTop_creator="1"
+
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-
-        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="59dp"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="67dp"
+        android:layout_marginBottom="102dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/switchCloudSyncOp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp" />
 
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintRight_toRightOf="@+id/switchCloudSyncOp"
@@ -92,6 +93,7 @@
         android:textStyle="bold"
         android:layout_marginStart="16dp"
         tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="184dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -111,13 +113,13 @@
         android:id="@+id/switchCloudSyncOp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="14dp"
-
-        android:layout_marginRight="31dp" />
+        android:layout_marginRight="16dp" />
 
         android:layout_marginRight="16dp" />
 
@@ -128,17 +130,13 @@
         android:layout_height="55dp"
 
         app:srcCompat="@drawable/ic_android_black_24dp"
-        app:layout_constraintRight_toLeftOf="@+id/username"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="21dp"
+        tools:layout_constraintTop_creator="1"
         android:layout_marginTop="16dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="21dp" />
+        android:layout_marginLeft="16dp" />
         app:srcCompat="@drawable/com_facebook_button_send_icon_blue"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
@@ -155,21 +153,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginEnd="93dp"
+        android:layout_marginEnd="97dp"
         android:text="TextView"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginStart="96dp"
+        app:layout_constraintRight_toLeftOf="@+id/logout"
+        tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="93dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivpicaso"
-        app:layout_constraintRight_toRightOf="@+id/textView3"
+        android:layout_marginTop="38dp"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintLeft_toLeftOf="@+id/defaultemail"
-        android:layout_marginLeft="93dp"
-        android:layout_marginRight="93dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/ivpicaso"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="97dp" />
 
     <Button
         android:id="@+id/logout"
@@ -178,9 +176,9 @@
         android:text="Logout"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:layout_marginEnd="11dp"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="11dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"

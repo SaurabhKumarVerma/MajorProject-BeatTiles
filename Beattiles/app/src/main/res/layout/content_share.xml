@@ -8,4 +8,12 @@
     tools:context="trainedge.beattiles.ShareActivity"
     tools:showIn="@layout/activity_share">
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHARE"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="113dp" />
 </android.support.constraint.ConstraintLayout>
