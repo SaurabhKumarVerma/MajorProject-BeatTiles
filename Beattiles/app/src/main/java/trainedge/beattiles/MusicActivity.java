@@ -29,7 +29,7 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
         songList = mRetriever.mItems;
 
         //pass Recycler View Adapter
-        
+        //recycler holder
     }
 
 
