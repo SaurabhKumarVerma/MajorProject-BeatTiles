@@ -3,13 +3,14 @@ package trainedge.beattiles;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-public class MusicActivity extends AppCompatActivity, RecyclerView.Adapter<MusicAdapter.MusicCardHolder> implements PrepareMusicRetrieverTask.MusicRetrieverPreparedListener {
+public class MusicActivity extends AppCompatActivity implements PrepareMusicRetrieverTask.MusicRetrieverPreparedListener {
 
     private MusicRetriever mRetriever;
     private List<MusicRetriever.Item> songList;
@@ -21,32 +22,30 @@ public class MusicActivity extends AppCompatActivity, RecyclerView.Adapter<Music
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        RecyclerView musicrecycler=(RecyclerView)findViewById(R.id.musicrecycler);
+
         mRetriever = new MusicRetriever(getContentResolver());
         (new PrepareMusicRetrieverTask(mRetriever,this)).execute();
 
+        LinearLayoutManager Manager=new LinearLayoutManager(this);
+        musicrecycler.setLayoutManager(Manager);
+
+
     }
+
 
     @Override
     public void onMusicRetrieverPrepared() {
         songList = mRetriever.mItems;
 
         //pass Recycler View Adapter
+        songsadapter adapter=new songsadapter(songList);
+
+
+
         //recycler holder
     }
 
 
-    @Override
-    public MusicAdapter.MusicCardHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
-    }
 
-    @Override
-    public void onBindViewHolder(MusicAdapter.MusicCardHolder holder, int position) {
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return 0;
-    }
 }
