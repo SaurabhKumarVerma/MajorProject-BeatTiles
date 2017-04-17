@@ -23,14 +23,13 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        musicrecycler = (RecyclerView)findViewById(R.id.musicrecycler);
+        musicrecycler = (RecyclerView) findViewById(R.id.musicrecycler);
 
         mRetriever = new MusicRetriever(getContentResolver());
-        (new PrepareMusicRetrieverTask(mRetriever,this)).execute();
+        (new PrepareMusicRetrieverTask(mRetriever, this)).execute();
 
-        LinearLayoutManager Manager=new LinearLayoutManager(this);
+        LinearLayoutManager Manager = new LinearLayoutManager(this);
         musicrecycler.setLayoutManager(Manager);
-
 
     }
 
@@ -40,18 +39,16 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
         songList = mRetriever.mItems;
 
         //pass Recycler View Adapter
-        songsadapter adapter=new songsadapter(songList);
+        songsadapter adapter = new songsadapter(songList);
 
         musicrecycler.setAdapter(adapter);
 
 
-
         //recycler holder
-
-
+    // set onclick listner
+        // and analyser
 
     }
-
 
 
 }

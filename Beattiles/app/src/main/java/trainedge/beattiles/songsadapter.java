@@ -32,8 +32,6 @@ public class songsadapter extends RecyclerView.Adapter<songholder> {
         holder.tvsongs.setText(musicitem.getTitle());
         holder.tvartist.setText(musicitem.getArtist());
         holder.tvduration.setText(String.valueOf(musicitem.getDuration()));
-
-
     }
 
     @Override
