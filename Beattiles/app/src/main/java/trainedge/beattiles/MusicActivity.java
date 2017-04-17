@@ -14,6 +14,7 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
 
     private MusicRetriever mRetriever;
     private List<MusicRetriever.Item> songList;
+    private RecyclerView musicrecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        RecyclerView musicrecycler=(RecyclerView)findViewById(R.id.musicrecycler);
+        musicrecycler = (RecyclerView)findViewById(R.id.musicrecycler);
 
         mRetriever = new MusicRetriever(getContentResolver());
         (new PrepareMusicRetrieverTask(mRetriever,this)).execute();
@@ -41,9 +42,14 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
         //pass Recycler View Adapter
         songsadapter adapter=new songsadapter(songList);
 
+        musicrecycler.setAdapter(adapter);
+
 
 
         //recycler holder
+
+
+
     }
 
 
