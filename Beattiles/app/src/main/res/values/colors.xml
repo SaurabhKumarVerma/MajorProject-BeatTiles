@@ -3,4 +3,20 @@
     <color name="colorPrimary">#3b77b3</color>
     <color name="colorPrimaryDark">#119bd6</color>
     <color name="colorAccent">#0277bd</color>
+
+    <!-- Screens background -->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+
+    <!-- dots active colors -->
+    <color name="dot_active">#f98da5</color>
+    <color name="dot_active2">#93c6fd</color>
+    <color name="dot_active3">#8cf9eb</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_inactive">#cccccc</color>
+    <color name="dot_inactive2">#cccccc</color>
+    <color name="dot_inactive3">#cccccc</color>
+
 </resources>

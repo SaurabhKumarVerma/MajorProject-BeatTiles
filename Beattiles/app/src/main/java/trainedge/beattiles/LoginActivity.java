@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Intent homeIntent=new Intent(LoginActivity.this,BeatActivity.class);
+                    Intent homeIntent=new Intent(LoginActivity.this,SliderActivity.class);
                     startActivity(homeIntent);
                     finish();
                 } else {

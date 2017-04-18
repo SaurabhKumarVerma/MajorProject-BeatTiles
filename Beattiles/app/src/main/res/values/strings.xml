@@ -21,4 +21,16 @@
     <string name="title_activity_open_music">openMusic</string>
     <string name="title_activity_music">MusicActivity</string>
 
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">Start</string>
+    <string name="title_slide1">How To Play </string>
+    <string name="desc_slide1">Select Song From List</string>
+    <string name="title_slide2">How To Play</string>
+    <string name="desc_slide2">Audio Analyzer Will Gentrate Tiles</string>
+    <string name="title_slide3">How To Play</string>
+    <string name="desc_slide3">Click On White Tiles To Earn The Score</string>
+    <string name="title_activity_slider">SliderActivity</string>
+
+
 </resources>
