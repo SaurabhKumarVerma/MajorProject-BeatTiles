@@ -11,12 +11,10 @@
 
     <!-- dots active colors -->
     <color name="dot_active">#f98da5</color>
-    <color name="dot_active2">#93c6fd</color>
-    <color name="dot_active3">#8cf9eb</color>
+
 
     <!-- dots inactive colors -->
-    <color name="dot_inactive">#cccccc</color>
-    <color name="dot_inactive2">#cccccc</color>
-    <color name="dot_inactive3">#cccccc</color>
+    <color name="dot_inactive">#000</color>
+
 
 </resources>

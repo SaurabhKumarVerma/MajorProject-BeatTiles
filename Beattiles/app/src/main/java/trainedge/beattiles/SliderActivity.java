@@ -3,10 +3,13 @@ package trainedge.beattiles;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.TextView;
 
 public class SliderActivity extends Activity {
 
+
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     private LinearLayout dotsLayout;
@@ -30,11 +34,12 @@ public class SliderActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
         setContentView(R.layout.activity_slider);
+
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
@@ -42,7 +47,7 @@ public class SliderActivity extends Activity {
         btnNext = (Button) findViewById(R.id.btn_next);
 
         layouts = new int[]{
-                R.layout.slide1,
+                R.layout.slider1,
                 R.layout.slider2,
                 R.layout.slider3};
 
@@ -52,7 +57,6 @@ public class SliderActivity extends Activity {
         viewPagerAdapter = new ViewPagerAdapter();
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
 
 
 
@@ -104,6 +108,7 @@ public class SliderActivity extends Activity {
 
         }
     };
+
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
 
@@ -128,6 +133,7 @@ public class SliderActivity extends Activity {
         startActivity(new Intent(this, BeatActivity.class));
         finish();
     }
+
 
     public class ViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
@@ -164,4 +170,6 @@ public class SliderActivity extends Activity {
             container.removeView(view);
         }
     }
+
+
 }
