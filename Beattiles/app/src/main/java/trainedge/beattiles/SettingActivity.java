@@ -9,11 +9,13 @@ import android.widget.Button;
 
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button accbt;
-    private Button feedbackbutto;
-    private Button sharebt;
-    private Button gameoptinbt;
-    private Button aboutbt;
+    Intent shareIntent;
+    String shareBody= "This is an amazing app, you must be try it out!";
+    private Button accountbutton;
+    private Button feedbackbutton;
+    private Button gameoptinbtn;
+    private Button aboutbtn;
+    private Button sharebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,20 +25,20 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         setSupportActionBar(toolbar);
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        accbt = (Button) findViewById(R.id.accountbutton);
-        feedbackbutto = (Button) findViewById(R.id.feedbackbutton);
+        accountbutton = (Button) findViewById(R.id.accountbutton);
+        feedbackbutton = (Button) findViewById(R.id.feedbackbutton);
+        gameoptinbtn = (Button) findViewById(R.id.gameoptinbtn);
+        aboutbtn = (Button) findViewById(R.id.aboutbtn);
+        sharebutton = (Button) findViewById(R.id.sharebutton);
 
-        gameoptinbt = (Button) findViewById(R.id.gameoptinbtn);
-        aboutbt = (Button) findViewById(R.id.aboutbtn);
-
-
-        accbt.setOnClickListener(this);
-        feedbackbutto.setOnClickListener(this);
-
-        gameoptinbt.setOnClickListener(this);
-        aboutbt.setOnClickListener(this);
+        accountbutton.setOnClickListener(this);
+        feedbackbutton.setOnClickListener(this);
+        gameoptinbtn.setOnClickListener(this);
+        aboutbtn.setOnClickListener(this);
+        sharebutton.setOnClickListener(this);
 
     }
+
 
 
     @Override
@@ -59,6 +61,15 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
             Intent aboutintent=new Intent(SettingActivity.this,AboutActivity.class);
             startActivity(aboutintent);
+        }
+        if (v.getId()==R.id.sharebutton){
+
+            shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("Text/Plain");
+            shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "my_app");
+            shareIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
+
         }
 
 
