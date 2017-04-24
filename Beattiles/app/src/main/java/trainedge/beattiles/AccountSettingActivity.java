@@ -11,9 +11,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -31,19 +33,19 @@ import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
-public class AccountSettingActivity extends AppCompatActivity implements View.OnClickListener {
+public class AccountSettingActivity extends AppCompatActivity implements View.OnClickListener ,CompoundButton.OnCheckedChangeListener{
 
 
     private Switch switchCloudSyncOp;
-    private EditText defaultemail;
+
     private SharedPreferences pref;
     private TextView username;
     private ImageView ivpicaso;
     private Button logout;
-    private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String TAG="AccountSettingActivity";
     private FirebaseAuth mAuth;
+    private Switch switchOpenWifi;
 
 
     @Override
@@ -53,14 +55,21 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mAuth=FirebaseAuth.getInstance();
 
         ivpicaso = (ImageView) findViewById(R.id.ivpicaso);
         username = (TextView) findViewById(R.id.username);
-
+        switchOpenWifi = (Switch) findViewById(R.id.switchOpenWifi);
+        switchCloudSyncOp = (Switch) findViewById(R.id.switchCloudSyncOp);
         logout = (Button) findViewById(R.id.logout);
 
+        pref = getSharedPreferences("AccountSetting",MODE_PRIVATE);
+
         logout.setOnClickListener(this);
+        switchOpenWifi.setOnClickListener(this);
+        switchCloudSyncOp.setOnClickListener(this);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
@@ -106,11 +115,14 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
 
 
         }
+
+        updateUI();
     }
 
 
 
-  @Override
+
+    @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
@@ -128,6 +140,12 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
 
+        //clear settings
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.apply();
+        //pref.edit().clear().apply();
+
         if (v.getId() == R.id.logout) {
             mAuth.signOut();
             LoginManager.getInstance().logOut();
@@ -135,8 +153,27 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         }
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-        private class CircleTransform implements Transformation {
+        SharedPreferences.Editor editor = pref.edit();
+        switch (buttonView.getId()) {
+            case R.id.switchOpenWifi:
+                //code
+                editor.putBoolean("wifi_option", isChecked);
+                break;
+            case R.id.switchCloudSyncOp:
+                //code
+                editor.putBoolean("cloud_option", isChecked);
+                break;
+        }
+        //save setting
+        editor.apply();
+
+    }
+
+
+    private class CircleTransform implements Transformation {
             @Override
             public Bitmap transform(Bitmap source) {
                 int size = Math.min(source.getWidth(), source.getHeight());
@@ -170,6 +207,22 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
                 return "circle";
             }
         }
+
+    private void updateUI() {
+
+        boolean wifi_state = pref.getBoolean("wifi_option", false);
+        boolean cloud_state = pref.getBoolean("cloud_option", false);
+        switchOpenWifi.setChecked(wifi_state);
+        switchCloudSyncOp.setChecked(cloud_state);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Toast.makeText(this, "Settings saved", Toast.LENGTH_SHORT).show();
+    }
+
     }
 
 

@@ -22,6 +22,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+import static com.facebook.FacebookSdk.getApplicationContext;
+
+
 public class HomeActivity extends Activity {
 
     private static final int REQUEST_STORAGE = 332;
@@ -37,7 +41,7 @@ public class HomeActivity extends Activity {
 
         setContentView(R.layout.activity_home);
 
-        requestUser();
+
         ivanim = (ImageView) findViewById(R.id.ivanim);
 
         Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
@@ -77,22 +81,8 @@ public class HomeActivity extends Activity {
 
     }
 
-    private void requestUser() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_STORAGE);
-            }
-            return;
-        }
-    }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_STORAGE) {
-            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "please give permission", Toast.LENGTH_SHORT).show();
-                requestUser();
-            }
+
+
         }
-    }
-}
+
