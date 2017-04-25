@@ -127,7 +127,7 @@ public class SliderActivity extends Activity {
     }
 
     private void launchHomeScreen() {
-        startActivity(new Intent(this, BeatActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 

@@ -8,56 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1066318891219:android:6ea528812b6e3623",
-        "android_client_info": {
-          "package_name": "trainedge.beattilesproject"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1066318891219-loue1823rpnd1a4knqej3rkjnusvdd1v.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "trainedge.beattilesproject",
-            "certificate_hash": "864f64e5ef0cd50bd4fb67a8802be94d33c26da1"
-          }
-        },
-        {
-          "client_id": "1066318891219-uo0m1t8iiihnre2ukq5t7bmno4hbjmg4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCGu5YPJfQsRmMWsRkuvv2z7FXFlzfMnXk"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1066318891219-uo0m1t8iiihnre2ukq5t7bmno4hbjmg4.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:1066318891219:android:3cc7594be13b2c46",
         "android_client_info": {
           "package_name": "trainedge.beattiles"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1066318891219-ipsepogo86dh4hfbmu7lek37c0e5msq1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "trainedge.beattiles",
+            "certificate_hash": "c8b5d4303e30fc4f42cabf0a2f5c50b63894231c"
+          }
+        },
         {
           "client_id": "1066318891219-rf25bbtfi5c2r0hh5vcfjihnd1jk31dk.apps.googleusercontent.com",
           "client_type": 1,

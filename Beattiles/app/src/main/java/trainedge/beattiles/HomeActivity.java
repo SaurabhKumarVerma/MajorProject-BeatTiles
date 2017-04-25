@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 
@@ -61,10 +63,17 @@ public class HomeActivity extends Activity {
                     @Override
                     public void run() {
                         try {
-                            sleep(3000);
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(intent);
-                            finish();
+                            sleep(2000);
+                            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                                Intent intent = new Intent(getApplicationContext(), SliderActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Intent homeIntent = new Intent(getApplicationContext(), BeatActivity.class);
+                                startActivity(homeIntent);
+                                finish();
+
+                            }
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -84,7 +93,5 @@ public class HomeActivity extends Activity {
     }
 
 
-
-
-        }
+}
 

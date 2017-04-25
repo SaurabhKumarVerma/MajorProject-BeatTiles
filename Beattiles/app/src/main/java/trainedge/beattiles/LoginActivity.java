@@ -38,7 +38,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
-    public static final int RC_SIGN_IN = 8768;
+    public static final int RC_SIGN_IN = 8168;
     public static final String TAG = "LoginActivity";
 
     private GoogleApiClient mGoogleApiClient;
@@ -75,13 +75,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Intent homeIntent=new Intent(LoginActivity.this,SliderActivity.class);
+                    Toast.makeText(LoginActivity.this, "Singed IN", Toast.LENGTH_SHORT).show();
+                    Intent homeIntent = new Intent(LoginActivity.this, BeatActivity.class);
                     startActivity(homeIntent);
                     finish();
                 } else {
                     // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                    Toast.makeText(LoginActivity.this, "not signed In", Toast.LENGTH_SHORT).show();
                 }
                 // ...
             }
@@ -131,7 +131,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
-                // ...
+                Toast.makeText(this, "sign In failed", Toast.LENGTH_SHORT).show();
             }
         } else {
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
@@ -153,36 +153,31 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        Toast.makeText(this, acct.getEmail(), Toast.LENGTH_SHORT).show();
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+                        Toast.makeText(LoginActivity.this, "step 1 complete", Toast.LENGTH_SHORT).show();
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithCredential", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Authentication failed. " + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         }
-                        // ...
                     }
                 });
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Snackbar.make(ivGoogleSignIn,"Not Connected To Internet", BaseTransientBottomBar.LENGTH_INDEFINITE).show();
+        Snackbar.make(ivGoogleSignIn, "Not Connected To Internet", BaseTransientBottomBar.LENGTH_INDEFINITE).show();
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.ivGoogleSignIn:
                 signIn();
                 break;
