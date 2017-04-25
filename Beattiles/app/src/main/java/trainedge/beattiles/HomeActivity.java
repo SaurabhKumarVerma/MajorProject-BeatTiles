@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -28,6 +29,7 @@ public class HomeActivity extends Activity {
 
     private static final int REQUEST_STORAGE = 332;
     private ImageView ivanim;
+    private TextView tvbeat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +41,10 @@ public class HomeActivity extends Activity {
         setContentView(R.layout.activity_home);
 
 
-        ivanim = (ImageView) findViewById(R.id.ivanim);
+        tvbeat = (TextView) findViewById(R.id.tvbeat);
 
         Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
-        ivanim.setAnimation(fadeInAnimation);
+        tvbeat.setAnimation(fadeInAnimation);
 
         fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
