@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    compile files('libs/TarsosDSP.jar')
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.0'
@@ -28,8 +29,9 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.google.firebase:firebase-database:10.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile files('libs/TarsosDSP.jar')
 }
+
+
 
 
 

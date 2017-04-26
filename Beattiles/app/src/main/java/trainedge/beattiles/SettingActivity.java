@@ -68,7 +68,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
                 i.putExtra(Intent.EXTRA_SUBJECT, "Beat Tiles");
-                String sAux = "\nYour friend invited you to join our app.\n\n";
+                String sAux = "\nYour friend invited you to download this app.\n\n";
                 sAux = sAux + "https://play.google.com/store/apps/details?id=Beat Tiles\n\nPlease give a try to our app.\n\n\n Thank You.";
                 i.putExtra(Intent.EXTRA_TEXT, sAux);
                 startActivity(Intent.createChooser(i, "Share using..."));

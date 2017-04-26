@@ -17,11 +17,13 @@ public class MusicRetriever {
     // the items (songs) we have queried
     List<Item> mItems = new ArrayList<Item>();
     Random mRandom = new Random();
+
     public MusicRetriever(ContentResolver cr) {
         mContentResolver = cr;
     }
+
     /**
-     *  Loads music data. This method may take long, so be sure to call it asynchronously without
+     * Loads music data. This method may take long, so be sure to call it asynchronously without
      * blocking the main thread.
      */
     public void prepare() {
@@ -50,6 +52,8 @@ public class MusicRetriever {
         int albumColumn = cur.getColumnIndex(MediaStore.Audio.Media.ALBUM);
         int durationColumn = cur.getColumnIndex(MediaStore.Audio.Media.DURATION);
         int idColumn = cur.getColumnIndex(MediaStore.Audio.Media._ID);
+        int column_index = cur.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+
         Log.i(TAG, "Title column index: " + String.valueOf(titleColumn));
         Log.i(TAG, "ID column index: " + String.valueOf(titleColumn));
         // add each song to mItems
@@ -60,7 +64,7 @@ public class MusicRetriever {
                     cur.getString(artistColumn),
                     cur.getString(titleColumn),
                     cur.getString(albumColumn),
-                    cur.getLong(durationColumn)));
+                    cur.getLong(durationColumn), cur.getString(column_index)));
         } while (cur.moveToNext());
         Log.i(TAG, "Done querying media. MusicRetriever is ready.");
     }
@@ -69,44 +73,56 @@ public class MusicRetriever {
         return mContentResolver;
     }
 
-    /** Returns a random Item. If there are no items available, returns null. */
+    /**
+     * Returns a random Item. If there are no items available, returns null.
+     */
 
-    public Item getRandomItem() {
-        if (mItems.size() <= 0) return null;
-        return mItems.get(mRandom.nextInt(mItems.size()));
-    }
 
     public static class Item {
+        private final String path;
         long id;
         String artist;
         String title;
         String album;
         long duration;
-        public Item(long id, String artist, String title, String album, long duration) {
+
+        public Item(long id, String artist, String title, String album, long duration, String path) {
             this.id = id;
             this.artist = artist;
             this.title = title;
             this.album = album;
             this.duration = duration;
+            this.path = path;
         }
+
+        public String getPath() {
+            return path;
+        }
+
         public long getId() {
             return id;
         }
+
         public String getArtist() {
             return artist;
         }
+
         public String getTitle() {
             return title;
         }
+
         public String getAlbum() {
             return album;
         }
+
         public long getDuration() {
             return duration;
         }
+
         public Uri getURI() {
             return ContentUris.withAppendedId(
                     android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
         }
+
     }
 }

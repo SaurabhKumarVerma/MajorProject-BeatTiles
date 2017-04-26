@@ -1,37 +1,28 @@
 package trainedge.beattiles;
 
-import android.*;
 import android.Manifest;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class HomeActivity extends Activity {
 
     private static final int REQUEST_STORAGE = 332;
+    private static final String TAG = "str";
     private ImageView ivanim;
     private TextView tvbeat;
 
@@ -64,15 +55,8 @@ public class HomeActivity extends Activity {
                     public void run() {
                         try {
                             sleep(2000);
-                            if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-                                Intent intent = new Intent(getApplicationContext(), SliderActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                Intent homeIntent = new Intent(getApplicationContext(), BeatActivity.class);
-                                startActivity(homeIntent);
-                                finish();
-
+                            if (isStoragePermissionGranted()) {
+                                handleIntent();
                             }
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -92,6 +76,55 @@ public class HomeActivity extends Activity {
 
     }
 
+    private void handleIntent() {
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            jumpToSlider();
+        } else {
+            jumpToBeat();
+
+        }
+    }
+
+    private void jumpToBeat() {
+        Intent homeIntent = new Intent(getApplicationContext(), BeatActivity.class);
+        startActivity(homeIntent);
+        finish();
+    }
+
+    private void jumpToSlider() {
+        Intent intent = new Intent(getApplicationContext(), SliderActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG, "Permission is granted");
+                return true;
+            } else {
+
+                Log.v(TAG, "Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG, "Permission is granted");
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            isStoragePermissionGranted();
+        }else{
+            handleIntent();
+        }
+    }
 
 }
 

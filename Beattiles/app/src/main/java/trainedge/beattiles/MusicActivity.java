@@ -46,16 +46,8 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
 
 
         //recycler holder
-    // set onclick listner
+        // set onclick listner
         // and analyser
-
-        musicrecycler.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
 
 

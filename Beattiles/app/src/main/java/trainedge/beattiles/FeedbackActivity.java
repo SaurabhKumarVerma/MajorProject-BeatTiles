@@ -154,7 +154,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         }
         Intent emailint = new Intent(Intent.ACTION_SEND);
         emailint.setType("text/html");
-        emailint.putExtra(Intent.EXTRA_EMAIL,new String[]{"ankitsrv995@gmail.com"});
+        emailint.putExtra(Intent.EXTRA_EMAIL,new String[]{"ankitsrv995@gmail.com","ishusingh9721073220@gmail.com"});
         emailint.putExtra(Intent.EXTRA_SUBJECT,"Feedback");
         emailint.putExtra(Intent.EXTRA_TEXT,"Hi,\n \t You have got a feedback e-mail.Your app has been rated "+rating+" star by the user. And user's thought about the app are - \""+edfeedbck.getText().toString()+"\". To write him back please use the email \""+etemail.getText().toString()+"\". \n\tHave a nice day. \n\tThank You.");
         startActivity(Intent.createChooser(emailint,"Send Feedback"));

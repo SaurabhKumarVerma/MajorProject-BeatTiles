@@ -31,6 +31,8 @@
     <string name="title_slide3">How To Play</string>
     <string name="desc_slide3">Click On White Tiles To Earn The Score</string>
     <string name="title_activity_slider">SliderActivity</string>
+    <string name="title_activity_position">PositionActivity</string>
+    <string name="title_activity_music_analyser">MusicAnalyser</string>
 
 
 </resources>

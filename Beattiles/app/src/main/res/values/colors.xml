@@ -17,4 +17,9 @@
     <color name="dot_inactive">#000</color>
 
 
+
+    <color name="clickColor">#d2d2d2</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 </resources>
