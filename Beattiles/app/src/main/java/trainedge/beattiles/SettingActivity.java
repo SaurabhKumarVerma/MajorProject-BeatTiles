@@ -64,11 +64,17 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         }
         if (v.getId()==R.id.sharebutton){
 
-            shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("Text/Plain");
-            shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "my_app");
-            shareIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
-            startActivity(Intent.createChooser(shareIntent, "Share via"));
+            try {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Beat Tiles");
+                String sAux = "\nYour friend invited you to join our app.\n\n";
+                sAux = sAux + "https://play.google.com/store/apps/details?id=Beat Tiles\n\nPlease give a try to our app.\n\n\n Thank You.";
+                i.putExtra(Intent.EXTRA_TEXT, sAux);
+                startActivity(Intent.createChooser(i, "Share using..."));
+            } catch(Exception e) {
+
+            }
 
         }
 

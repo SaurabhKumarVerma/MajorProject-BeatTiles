@@ -20,6 +20,6 @@ public class songholder extends RecyclerView.ViewHolder {
         tvsongs=(TextView) itemView.findViewById(R.id.tvsongs);
         tvartist=(TextView) itemView.findViewById(R.id.tvartist);
         tvduration=(TextView) itemView.findViewById(R.id.tvduration);
-        rlayout=itemView.findViewById(R.id.rlcontainer);
+      //  rlayout=itemView.findViewById(R.id.rlcontainer);
     }
 }

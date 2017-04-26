@@ -22,7 +22,7 @@
         android:layout_marginRight="6dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="73dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/custom_ripple_border"
         android:drawableLeft="@drawable/ic_supervisor_account_black_24dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -48,7 +48,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/custom_ripple_border"
         android:drawableLeft="@drawable/ic_feedback_black_24dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
@@ -70,7 +70,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@drawable/custom_ripple_border"
         android:drawableLeft="@drawable/gameopt"
         android:text="    Game Option"
         android:textStyle="bold"
@@ -102,7 +102,8 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        android:background="@drawable/custom_ripple_border"/>
 
     <Button
         android:id="@+id/sharebutton"
@@ -125,6 +126,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/aboutbtn"
         android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp" />
+        android:layout_marginRight="12dp"
+        android:background="@drawable/custom_ripple_border"/>
 
 </android.support.constraint.ConstraintLayout>
