@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import java.util.Arrays;
 
-public class MusicAnalyser extends AppCompatActivity {
+public class MusicAnalyser extends AppCompatActivity  {
 
     private CountDownView mCountDownView;
     private PianoTilesView mPianoTilesView;
