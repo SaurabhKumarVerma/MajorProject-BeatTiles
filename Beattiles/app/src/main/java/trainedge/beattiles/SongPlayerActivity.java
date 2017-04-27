@@ -1,6 +1,7 @@
 package trainedge.beattiles;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import static android.os.Looper.prepare;
 public class SongPlayerActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
+    private int position;
+    private String path;
+    private Uri songUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +33,27 @@ public class SongPlayerActivity extends AppCompatActivity {
 
         Intent recIntent = getIntent();
 
-        mediaPlayer = new MediaPlayer();
 
-        int position=recIntent.getIntExtra("trainedge.beattiles.position",0);
-        String path = recIntent.getExtras().getString("trainedge.beattile.path");
-        Uri songUri= recIntent.getExtras().getParcelable("trainedge.beattile.uri");
-        handleSongPlay();
+        position = recIntent.getIntExtra("trainedge.beattiles.position",0);
+        path = recIntent.getExtras().getString("trainedge.beattile.path");
+        songUri = recIntent.getExtras().getParcelable("trainedge.beattile.uri");
+        try {
+            handleSongPlay();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     private void handleSongPlay() throws IOException {
 
-        mediaPlayer.start();
+
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer.setDataSource(getApplicationContext(), songUri);
         mediaPlayer.prepare();
+        mediaPlayer.start();
+
 
     }
 
