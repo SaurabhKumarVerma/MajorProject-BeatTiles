@@ -23,6 +23,7 @@ public class SongPlayerActivity extends AppCompatActivity {
     private int position;
     private String path;
     private Uri songUri;
+    private int position1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,13 @@ public class SongPlayerActivity extends AppCompatActivity {
         Intent recIntent = getIntent();
 
 
+
         position = recIntent.getIntExtra("trainedge.beattiles.position",0);
         path = recIntent.getExtras().getString("trainedge.beattile.path");
         songUri = recIntent.getExtras().getParcelable("trainedge.beattile.uri");
+
+
+
         try {
             handleSongPlay();
         } catch (IOException e) {

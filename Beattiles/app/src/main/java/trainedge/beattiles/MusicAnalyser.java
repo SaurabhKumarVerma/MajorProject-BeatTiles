@@ -73,6 +73,9 @@ public class MusicAnalyser extends AppCompatActivity  {
                         if (mAlertScoreDialog != null) {
                             mAlertScoreDialog.setScore(number);
                             mAlertScoreDialog.show();
+
+
+
                         }
 
                     }
