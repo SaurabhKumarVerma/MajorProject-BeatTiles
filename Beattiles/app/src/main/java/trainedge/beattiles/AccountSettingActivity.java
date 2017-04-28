@@ -55,7 +55,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAuth=FirebaseAuth.getInstance();
 

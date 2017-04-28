@@ -34,7 +34,11 @@ public class SongPlayerActivity extends AppCompatActivity {
         int position=recIntent.getIntExtra("trainedge.beattiles.position",0);
         String path = recIntent.getExtras().getString("trainedge.beattile.path");
         Uri songUri= recIntent.getExtras().getParcelable("trainedge.beattile.uri");
-        handleSongPlay();
+        try {
+            handleSongPlay();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
