@@ -38,11 +38,9 @@ public class HomeActivity extends Activity {
 
 
         tvbeat = (TextView) findViewById(R.id.tvbeat);
-
-        Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein);
-        tvbeat.setAnimation(fadeInAnimation);
-
-        fadeInAnimation.setAnimationListener(new Animation.AnimationListener() {
+        Animation animation=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.homebeat_animation);
+        tvbeat.setAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
