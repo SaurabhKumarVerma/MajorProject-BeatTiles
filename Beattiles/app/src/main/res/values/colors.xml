@@ -2,7 +2,11 @@
 <resources>
     <color name="colorPrimary">#00BCD4</color>
     <color name="colorPrimaryDark">#7986CB</color>
+<<<<<<< HEAD
     <color name="colorAccent">#000000</color>
+=======
+    <color name="colorAccent">#B2EBF2</color>
+>>>>>>> origin/master
 
     <!-- Screens background -->
     <color name="bg_screen1">#f64c73</color>
