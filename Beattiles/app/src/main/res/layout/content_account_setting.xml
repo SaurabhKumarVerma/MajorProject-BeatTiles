@@ -45,7 +45,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="225dp"
-        android:drawableLeft="@drawable/ic_cloud_upload_black_24dp"
+        android:drawableLeft="@drawable/ic_cloud_computing"
         android:gravity="left|center"
         android:text="   Allow Automatic cloud sync"
         android:textColor="@color/white"
@@ -94,7 +94,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_android_black_24dp"
+        app:srcCompat="@drawable/ic_account"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
     app:srcCompat="@drawable/com_facebook_button_send_icon_blue"
@@ -114,20 +114,13 @@
         android:layout_height="wrap_content"
 
         android:layout_marginEnd="97dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginRight="97dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="38dp"
         android:text="TextView"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="@+id/ivpicaso"
-        app:layout_constraintRight_toLeftOf="@+id/logout"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="38dp" />
 
     <Button
         android:id="@+id/logout"
@@ -152,7 +145,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="66dp"
-        android:drawableLeft="@drawable/ic_wifi_black_24dp"
+        android:drawableLeft="@drawable/ic_wifi_signal"
         android:gravity="center"
         android:text="  Downlaoding Using Wifi"
         android:textColor="@color/white"

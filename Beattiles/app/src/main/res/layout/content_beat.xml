@@ -4,25 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/beat_bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="trainedge.beattiles.BeatActivity"
-    tools:showIn="@layout/activity_beat"
+    tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:showIn="@layout/activity_beat">
 
     <Button
         android:id="@+id/ngamebtn"
-        android:layout_width="348dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/custom_ripple_border"
         android:text="New Game"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginStart="15dp"
         tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="34dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="18dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
 </android.support.constraint.ConstraintLayout>
