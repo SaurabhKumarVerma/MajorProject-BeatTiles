@@ -211,20 +211,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
     }
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.content_login, container, false);
 
-        // getActivity() will hand over the context to the method
-        // if you call this inside an activity, simply replace getActivity() by "this"
-        if(!isConnected(new LoginActivity())) buildDialog(new LoginActivity()).show();
-        else {
-            // we have internet connection, so it is save to connect to the internet here
-            new TheTask().execute();
-        }
-
-        // do other stuff
-        return view;
-    }
 
     public boolean isConnected(Context context) {
 
