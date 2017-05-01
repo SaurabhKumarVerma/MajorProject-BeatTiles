@@ -1,5 +1,6 @@
 package trainedge.beattiles;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -7,6 +8,7 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.common.api.GoogleApiClient;
+
 import android.widget.Toast;
 
 
@@ -33,7 +36,7 @@ import com.google.firebase.auth.UserInfo;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
-public class AccountSettingActivity extends AppCompatActivity implements View.OnClickListener ,CompoundButton.OnCheckedChangeListener{
+public class AccountSettingActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
 
     private Switch switchCloudSyncOp;
@@ -43,7 +46,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
     private ImageView ivpicaso;
     private Button logout;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private String TAG="AccountSettingActivity";
+    private String TAG = "AccountSettingActivity";
     private FirebaseAuth mAuth;
     private Switch switchOpenWifi;
 
@@ -55,9 +58,9 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         ivpicaso = (ImageView) findViewById(R.id.ivpicaso);
         username = (TextView) findViewById(R.id.username);
@@ -65,7 +68,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         switchCloudSyncOp = (Switch) findViewById(R.id.switchCloudSyncOp);
         logout = (Button) findViewById(R.id.logout);
 
-        pref = getSharedPreferences("AccountSetting",MODE_PRIVATE);
+        pref = getSharedPreferences("AccountSetting", MODE_PRIVATE);
 
         logout.setOnClickListener(this);
         switchOpenWifi.setOnClickListener(this);
@@ -92,7 +95,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             for (UserInfo profile : user.getProviderData()) {
-                 String providerId = profile.getProviderId();
+                String providerId = profile.getProviderId();
 
                 // UID specific to the provider
                 String uid = profile.getUid();
@@ -110,16 +113,10 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
             }
 
 
-
-
-
-
         }
 
         updateUI();
     }
-
-
 
 
     @Override
@@ -127,8 +124,6 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
-
-
 
 
     @Override
@@ -161,6 +156,8 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
             case R.id.switchOpenWifi:
                 //code
                 editor.putBoolean("wifi_option", isChecked);
+                WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                manager.setWifiEnabled(switchOpenWifi.isEnabled());
                 break;
             case R.id.switchCloudSyncOp:
                 //code
@@ -174,39 +171,39 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
 
 
     private class CircleTransform implements Transformation {
-            @Override
-            public Bitmap transform(Bitmap source) {
-                int size = Math.min(source.getWidth(), source.getHeight());
+        @Override
+        public Bitmap transform(Bitmap source) {
+            int size = Math.min(source.getWidth(), source.getHeight());
 
-                int x = (source.getWidth() - size) / 2;
-                int y = (source.getHeight() - size) / 2;
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
 
-                Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
-                if (squaredBitmap != source) {
-                    source.recycle();
-                }
-
-                Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
-
-                Canvas canvas = new Canvas(bitmap);
-                Paint paint = new Paint();
-                BitmapShader shader = new BitmapShader(squaredBitmap,
-                        BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
-                paint.setShader(shader);
-                paint.setAntiAlias(true);
-
-                float r = size / 2f;
-                canvas.drawCircle(r, r, r, paint);
-
-                squaredBitmap.recycle();
-                return bitmap;
+            Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
+            if (squaredBitmap != source) {
+                source.recycle();
             }
 
-            @Override
-            public String key() {
-                return "circle";
-            }
+            Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
+
+            Canvas canvas = new Canvas(bitmap);
+            Paint paint = new Paint();
+            BitmapShader shader = new BitmapShader(squaredBitmap,
+                    BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
+            paint.setShader(shader);
+            paint.setAntiAlias(true);
+
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+
+            squaredBitmap.recycle();
+            return bitmap;
         }
+
+        @Override
+        public String key() {
+            return "circle";
+        }
+    }
 
     private void updateUI() {
 
@@ -223,7 +220,7 @@ public class AccountSettingActivity extends AppCompatActivity implements View.On
         Toast.makeText(this, "Settings saved", Toast.LENGTH_SHORT).show();
     }
 
-    }
+}
 
 
 

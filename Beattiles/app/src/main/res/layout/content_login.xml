@@ -10,9 +10,6 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="25dp"
     tools:showIn="@layout/activity_login">
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/FacebookSignIn"
