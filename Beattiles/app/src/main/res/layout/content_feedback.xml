@@ -164,6 +164,7 @@
         android:ems="10"
         android:hint="Tell Me How we can Improved This Game "
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imbtn_nolike"
