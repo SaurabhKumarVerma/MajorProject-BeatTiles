@@ -2,6 +2,7 @@ package trainedge.beattiles;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,9 +38,10 @@ public class songsadapter extends RecyclerView.Adapter<songholder> {
         holder.rlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Uri uri = musicitem.getURI();
                 Intent i = new Intent(holder.rlayout.getContext(), MusicAnalyser.class);
                 i.putExtra("trainedge.beattiles.path", musicitem.getPath());
-                i.putExtra("trainedge.beattiles.uri", musicitem.getURI());
+                i.putExtra("trainedge.beattiles.uri", uri);
                 holder.rlayout.getContext().startActivity(i);
             }
         });

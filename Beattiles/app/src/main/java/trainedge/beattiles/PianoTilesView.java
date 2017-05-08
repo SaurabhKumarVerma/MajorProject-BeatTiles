@@ -82,7 +82,8 @@ public class PianoTilesView extends SurfaceView implements SurfaceHolder.Callbac
         mDrawThread = new Thread(this);
         mDrawThread.start();
     }
- //Desinging phase
+
+    //Desinging phase
     public void initBlock() {
         mScore = new Score();
         mUnLine = LINE;
@@ -206,9 +207,14 @@ public class PianoTilesView extends SurfaceView implements SurfaceHolder.Callbac
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         mIsRuning = false;
-        mScheduled.shutdown();
-        if (mGameListener != null) {
-            mGameListener.gameEnd(mScore.getNumber());
+
+        try {
+            mScheduled.shutdown();
+            if (mGameListener != null) {
+                mGameListener.gameEnd(mScore.getNumber());
+            }
+        } catch (Exception e) {
+
         }
     }
 

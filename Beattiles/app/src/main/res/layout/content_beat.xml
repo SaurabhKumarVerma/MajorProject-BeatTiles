@@ -32,4 +32,30 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <Button
+        android:id="@+id/loadgamebutton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="355dp"
+        android:layout_height="62dp"
+        android:text="Load Game"
+        android:background="@drawable/custom_ripple_border"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="357dp"
+        android:layout_height="65dp"
+        android:text="High Score"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+
 </android.support.constraint.ConstraintLayout>

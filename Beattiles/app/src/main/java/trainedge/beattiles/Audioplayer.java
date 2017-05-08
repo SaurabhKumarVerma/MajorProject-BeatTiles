@@ -18,14 +18,7 @@ import be.tarsos.dsp.AudioProcessor;
 import be.tarsos.dsp.io.TarsosDSPAudioFloatConverter;
 import be.tarsos.dsp.io.TarsosDSPAudioFormat;
 
-/**
- * Created by ankit on 26-Apr-17.
- */
-
 public class Audioplayer {
-
-
-
 
 
     public class AndroidAudioPlayer implements AudioProcessor {
