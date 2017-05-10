@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.wifi" />
@@ -60,9 +60,9 @@
         </activity>
         <activity
             android:name=".SettingActivity"
-            android:screenOrientation="sensorPortrait"
             android:label="@string/title_activity_setting"
             android:parentActivityName=".BeatActivity"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AccountSettingActivity"
@@ -91,13 +91,17 @@
         <activity
             android:name=".MusicAnalyser"
             android:label="@string/title_activity_music_analyser"
-            android:screenOrientation="sensorPortrait"
             android:parentActivityName=".MusicActivity"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="trainedge.beattiles.MusicActivity" />
         </activity>
+        <activity
+            android:name=".Summary"
+            android:label="@string/title_activity_summary"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

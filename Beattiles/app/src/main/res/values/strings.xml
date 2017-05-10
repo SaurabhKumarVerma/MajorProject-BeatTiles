@@ -33,6 +33,7 @@
     <string name="title_activity_slider">SliderActivity</string>
     <string name="title_activity_position">PositionActivity</string>
     <string name="title_activity_music_analyser">MusicAnalyser</string>
+    <string name="title_activity_summary">Summary</string>
 
 
 </resources>

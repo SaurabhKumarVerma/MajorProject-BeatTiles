@@ -37,8 +37,6 @@ public class MusicAnalyser extends AppCompatActivity {
         initView();
 
 
-
-
     }
 
     private void getData() {
@@ -67,7 +65,7 @@ public class MusicAnalyser extends AppCompatActivity {
     private void displaySummary(MediaPlayer mp) {
         try {
             mPianoTilesView.endGame();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
@@ -96,13 +94,22 @@ public class MusicAnalyser extends AppCompatActivity {
                 .setFinishClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        try {
+                            killSong();
+                        } catch (Exception e) {
+                        }
                         finish();
                         mAlertScoreDialog.dismiss();
+
                     }
                 })
                 .setRestartClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        try {
+                            killSong();
+                        } catch (Exception e) {
+                        }
                         mAlertScoreDialog.dismiss();
                         mPianoTilesView.restart();
                         mMarkRela.setVisibility(View.VISIBLE);
@@ -137,16 +144,20 @@ public class MusicAnalyser extends AppCompatActivity {
     public void onBackPressed() {
         try {
 
-            if (mediaPlayer != null) {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
-                }
-                mediaPlayer.release();
-            }
+            killSong();
         } catch (Exception e) {
 
         }
         finish();
+    }
+
+    private void killSong() throws Exception {
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+        }
     }
 
 

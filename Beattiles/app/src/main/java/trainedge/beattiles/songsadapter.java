@@ -39,7 +39,7 @@ public class songsadapter extends RecyclerView.Adapter<songholder> {
             @Override
             public void onClick(View v) {
                 Uri uri = musicitem.getURI();
-                Intent i = new Intent(holder.rlayout.getContext(), MusicAnalyser.class);
+                Intent i = new Intent(holder.rlayout.getContext(), Summary.class);
                 i.putExtra("trainedge.beattiles.path", musicitem.getPath());
                 i.putExtra("trainedge.beattiles.uri", uri);
                 holder.rlayout.getContext().startActivity(i);
