@@ -41,7 +41,6 @@ public class MusicActivity extends AppCompatActivity implements PrepareMusicRetr
 
         //pass Recycler View Adapter
         songsadapter adapter = new songsadapter(songList);
-
         musicrecycler.setAdapter(adapter);
 
 

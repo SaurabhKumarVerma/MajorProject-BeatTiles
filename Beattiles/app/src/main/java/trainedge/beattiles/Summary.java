@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 import com.vodyasov.amr.AudiostreamMetadataManager;
 import com.vodyasov.amr.OnNewMetadataListener;
@@ -53,10 +54,10 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
         tvaudio = (TextView) findViewById(R.id.tvaudio);
         tvgener = (TextView) findViewById(R.id.tvgener);
         tvbitrate = (TextView) findViewById(R.id.tvbitrate);
-        tvdecription = (TextView) findViewById(R.id.tvdecription);
-        fabAnalyse = (FloatingActionButton) findViewById(R.id.fabAnalyse);
+
+       ;
         fabGo = (FloatingActionButton) findViewById(R.id.fabGo);
-        fabAnalyse.setOnClickListener(this);
+
         fabGo.setOnClickListener(this);
 
         metaRetriver = new MediaMetadataRetriever();
@@ -75,7 +76,7 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
             tvaudio.setText(artist);
             tvgener.setText(genre);
             tvbitrate.setText(bitrate);
-            tvdecription.setText(duration);
+
         } catch (Exception e) {
         }
 
@@ -94,9 +95,7 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.fabAnalyse:
-                startAnalysis();
-                break;
+
             case R.id.fabGo:
                 startGame();
                 break;
@@ -108,4 +107,59 @@ public class Summary extends AppCompatActivity implements View.OnClickListener {
     private void startAnalysis() {
         //Start parsing
     }
+
+    public static class BpmCalculator {
+        private static final Long MILLISECONDS_IN_A_MINUTE = 60000L;
+        public ArrayList<Long> times;
+        private boolean isRecording;
+
+        public BpmCalculator() {
+            times = new ArrayList<Long>();
+            isRecording = false;
+        }
+
+        public void recordTime() {
+            Long time = System.currentTimeMillis();
+            times.add(time);
+            isRecording = true;
+        }
+
+        public int getBpm() {
+            ArrayList<Long> deltas = getDeltas();
+            return calculateBpm(deltas);
+        }
+
+        public void clearTimes() {
+            times.clear();
+            isRecording = false;
+        }
+
+        private ArrayList<Long> getDeltas() {
+            ArrayList<Long> deltas = new ArrayList<Long>();
+
+            for (int i = 0; i < times.size() - 1; i++) {
+                Long delta = times.get(i + 1) - times.get(i);
+                deltas.add(delta);
+            }
+
+            return deltas;
+        }
+
+        private int calculateBpm(ArrayList<Long> deltas) {
+            Long sum = 0L;
+
+            for (Long delta : deltas) {
+                sum = sum + delta;
+            }
+
+            Long average = sum / deltas.size();
+
+            return (int) (MILLISECONDS_IN_A_MINUTE / average);
+        }
+
+        public boolean isRecording() {
+            return isRecording;
+        }
+    }
+
 }

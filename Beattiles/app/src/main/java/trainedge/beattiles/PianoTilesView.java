@@ -107,18 +107,6 @@ public class PianoTilesView extends SurfaceView implements SurfaceHolder.Callbac
                 mBlockData.add(mBlock);
             }
         }
-//        for(int i = 0; i < count;i++){
-//            int index = i % COL;
-//            int col = i / COL % LINE;
-//            float left = index * mBlockWidth + index * mBorderSize;
-//            float right = left + mBlockWidth;
-//            float top = col * mBlockHeight + col * mBorderSize;
-//            float bottom = mBlockHeight + top;
-//            RectF rectF = new RectF(left,top,right,bottom);
-//            Log.e("DEMO","index == "+index+"  target == "+target);
-//            Block mBlock = new Block(mBlockHeight,mBlockWidth,color,mBorderSize,rectF);
-//            mBlockData.add(mBlock);
-//        }
     }
 
     @Override

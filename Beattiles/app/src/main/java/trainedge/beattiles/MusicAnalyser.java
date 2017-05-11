@@ -12,9 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class MusicAnalyser extends AppCompatActivity {
 
@@ -129,13 +134,19 @@ public class MusicAnalyser extends AppCompatActivity {
                         if (mAlertScoreDialog != null) {
                             mAlertScoreDialog.setScore(number);
                             mAlertScoreDialog.show();
-
-
                         }
 
                     }
                 });
-
+                try {
+                    HashMap<String, Object> scoreData = new HashMap<String, Object>();
+                    scoreData.put("score", number);
+                    scoreData.put("user", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    FirebaseDatabase.getInstance().getReference("scores").child(uid).push().setValue(scoreData);
+                }catch (Exception e){
+                    Toast.makeText(MusicAnalyser.this, "could not upload score online, ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -143,7 +154,6 @@ public class MusicAnalyser extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         try {
-
             killSong();
         } catch (Exception e) {
 
