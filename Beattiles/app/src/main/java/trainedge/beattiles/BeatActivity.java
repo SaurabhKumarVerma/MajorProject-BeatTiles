@@ -26,6 +26,7 @@ public class BeatActivity extends AppCompatActivity implements View.OnClickListe
     private Button ngamebtn;
     private ContentResolver mContentResolver;
     private ContentResolver cr;
+    private Button highscorebtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,10 @@ public class BeatActivity extends AppCompatActivity implements View.OnClickListe
 
         ngamebtn = (Button) findViewById(R.id.ngamebtn);
         ngamebtn.setOnClickListener(this);
+
+        highscorebtn = findViewById(R.id.highscorebtn);
+        highscorebtn.setOnClickListener(this);
+
 
 
     }
@@ -61,13 +66,7 @@ public class BeatActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(settingint);
             return true;
         }
-/*
-        if (id == R.id.action_share) {
 
-            Intent shareint = new Intent(BeatActivity.this, ShareActivity.class);
-            startActivity(shareint);
-            return true;
-        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -76,13 +75,18 @@ public class BeatActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        if (v.getId() == R.id.ngamebtn) ;
-        {
+        if (v.getId() == R.id.ngamebtn)
+            {
 
             Intent musicintent=new Intent(BeatActivity.this,MusicActivity.class);
             startActivity(musicintent);
 
-        }
+            }
+            if(v.getId()==R.id.highscorebtn)
+            {
+                Intent scoreintent=new Intent(BeatActivity.this,ScoreActivity.class);
+                startActivity(scoreintent);
+            }
 
     }
 }
